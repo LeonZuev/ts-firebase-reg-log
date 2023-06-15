@@ -15,7 +15,8 @@ export default function UsersPage(): JSX.Element {
   return (
     <>
       <div>UsersPage</div>
-      {users.map((user) => <div>{user?.username}</div>)}
+      {users.map((user) => <div>{user?.username} {user?.email}</div>)}
+
       <Outlet />
     </>
   );
