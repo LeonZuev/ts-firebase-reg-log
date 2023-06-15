@@ -2,6 +2,7 @@ interface Name {
   firstname: string,
   lastname: string,
 }
+
 interface User {
   id: number,
   email: string,
