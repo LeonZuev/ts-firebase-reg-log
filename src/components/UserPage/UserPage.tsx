@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import User from '../../types/User';
 import { Link, useParams } from 'react-router-dom';
+import User from '../../types/User';
 
 export default function UserPage(): JSX.Element {
   const [user, setUser] = useState<User>();

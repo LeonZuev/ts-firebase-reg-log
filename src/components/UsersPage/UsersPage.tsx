@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useParams } from 'react-router-dom';
 import type User from '../../types/User';
 
 export default function UsersPage(): JSX.Element {
   const [users, setUsers] = useState<User[]>([]);
+  const { userId } = useParams();
   useEffect(() => {
     fetch('https://fakestoreapi.com/users')
       .then((res) => res.json())
@@ -13,16 +14,16 @@ export default function UsersPage(): JSX.Element {
       });
   }, []);
   return (
-    <>
-      <div>UsersPage</div>
-      {users.map((user) => (
-      <div>
-        {user?.username} {user?.email}
-        <Link to={user?.id.toString()}>About user</Link>
-      </div>
-    ))}
-
-      <Outlet />
-    </>
+    !userId ? (
+      <>
+        <div>UsersPage</div>
+        {users.map((user) => (
+          <div>
+            {user?.username} {user?.email}
+            <Link to={user?.id.toString()}>About user</Link>
+          </div>
+        ))}
+      </>
+    ) : <Outlet />
   );
 }
