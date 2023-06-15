@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import type User from '../../types/User';
 
 export default function UsersPage(): JSX.Element {
@@ -15,7 +15,12 @@ export default function UsersPage(): JSX.Element {
   return (
     <>
       <div>UsersPage</div>
-      {users.map((user) => <div>{user?.username} {user?.email}</div>)}
+      {users.map((user) => (
+      <div>
+        {user?.username} {user?.email}
+        <Link to={user?.id.toString()}>About user</Link>
+      </div>
+    ))}
 
       <Outlet />
     </>
