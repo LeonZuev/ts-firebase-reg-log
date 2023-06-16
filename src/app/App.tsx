@@ -10,7 +10,7 @@ import { auth } from '../api/firebase';
 
 function App(): JSX.Element {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
-  useEffect(() => {
+  useEffect(() => { // если юзер меняется, мы задаём его в контекст
     onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
       console.log(user);
