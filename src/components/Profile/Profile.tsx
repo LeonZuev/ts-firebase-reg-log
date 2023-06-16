@@ -1,6 +1,9 @@
 import React, { useContext } from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { signOut } from 'firebase/auth';
 import AuthContext from '../../contexts/AuthContext';
 import UserContext from '../../contexts/UserContext';
+import { auth } from '../../api/firebase';
 
 function Profile():JSX.Element {
   const user = useContext(AuthContext); // используем контекст - получили юзера в нутри профайла
@@ -13,7 +16,7 @@ function Profile():JSX.Element {
       {/* используем имэйл, получанный у юзера */}
         <p>Email: {user?.email}</p>
         <p>Phone: {phone}</p>
-        <span>Sign Out</span>
+        <button type="button" onClick={() => signOut(auth)}>Sign Out</button>
       </div>
     </div>
   );

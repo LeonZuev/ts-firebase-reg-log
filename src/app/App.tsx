@@ -8,6 +8,7 @@ import Register from '../components/Register/Register';
 import AuthContext from '../contexts/AuthContext';
 import { auth } from '../api/firebase';
 import UserContext from '../contexts/UserContext';
+import Login from '../components/Login/Login';
 
 function App(): JSX.Element {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
@@ -25,6 +26,7 @@ function App(): JSX.Element {
       <Routes>
         <Route path="/" element={<Profile />} />
         <Route path="register" element={<Register />} />
+        <Route path="login" element={<Login />} />
       </Routes>
       </UserContext.Provider>
     </AuthContext.Provider>
