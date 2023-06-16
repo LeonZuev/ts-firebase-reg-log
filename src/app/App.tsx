@@ -7,6 +7,7 @@ import Profile from '../components/Profile/Profile';
 import Register from '../components/Register/Register';
 import AuthContext from '../contexts/AuthContext';
 import { auth } from '../api/firebase';
+import UserContext from '../contexts/UserContext';
 
 function App(): JSX.Element {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
@@ -20,10 +21,12 @@ function App(): JSX.Element {
     // eslint-disable-next-line react/jsx-no-constructed-context-values
     // предоставляем контекст - делаем обёртку провайдер вокруг контекста
     <AuthContext.Provider value={currentUser}>
+      <UserContext.Provider value="+9727227272">
       <Routes>
         <Route path="/" element={<Profile />} />
         <Route path="register" element={<Register />} />
       </Routes>
+      </UserContext.Provider>
     </AuthContext.Provider>
   );
 }
