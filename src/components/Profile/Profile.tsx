@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import AuthContext from '../../contexts/AuthContext';
 
 function Profile():JSX.Element {
-  const user = useContext(AuthContext); // получили юзера в нутри профайла
+  const user = useContext(AuthContext); // используем контекст - получили юзера в нутри профайла
   // хук принимает контекст, а использует данные из контекста
   return (
     <div>

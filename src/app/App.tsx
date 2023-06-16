@@ -18,6 +18,7 @@ function App(): JSX.Element {
   }, []);
   return (
     // eslint-disable-next-line react/jsx-no-constructed-context-values
+    // предоставляем контекст - делаем обёртку провайдер вокруг контекста
     <AuthContext.Provider value={currentUser}>
       <Routes>
         <Route path="/" element={<Profile />} />
