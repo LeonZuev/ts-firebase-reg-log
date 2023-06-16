@@ -7,6 +7,18 @@ function Register(): JSX.Element {
   const [confirmPassword, setConfirmPassword] = useState('');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [error, setError] = useState('');
+
+  const validatePassword = ():boolean => {
+    let isValid = true;
+    if (password !== '' && confirmPassword !== '') {
+      if (password !== confirmPassword) {
+        isValid = false;
+        setError('Passwords does not match');
+      }
+    }
+    return isValid;
+  };
+
   return (
     <div>
       <div className="auth">
