@@ -9,6 +9,7 @@ import AuthContext from '../contexts/AuthContext';
 import { auth } from '../api/firebase';
 import UserContext from '../contexts/UserContext';
 import Login from '../components/Login/Login';
+import ProtectedRoute from '../components/ProtectedRoute/ProtectedRoute';
 
 function App(): JSX.Element {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
@@ -23,11 +24,11 @@ function App(): JSX.Element {
     // предоставляем контекст - делаем обёртку провайдер вокруг контекста
     <AuthContext.Provider value={currentUser}>
       <UserContext.Provider value="+9727227272">
-      <Routes>
-        <Route path="/" element={<Profile />} />
-        <Route path="register" element={<Register />} />
-        <Route path="login" element={<Login />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<ProtectedRoute outlet={<Profile />} />} />
+          <Route path="register" element={<Register />} />
+          <Route path="login" element={<Login />} />
+        </Routes>
       </UserContext.Provider>
     </AuthContext.Provider>
   );
