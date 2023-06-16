@@ -1,0 +1,7 @@
+/* eslint-disable import/no-extraneous-dependencies */
+import { User } from 'firebase/auth'; // импортировали тип юзера из фаербэйс
+import { createContext } from 'react';
+
+const AuthContext = createContext<User | null>(null);
+
+export default AuthContext;
