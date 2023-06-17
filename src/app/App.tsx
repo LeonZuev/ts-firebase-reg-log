@@ -17,7 +17,7 @@ function App(): JSX.Element {
   useEffect(() => { // если юзер меняется, мы задаём его в контекст
     onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
-      console.log(user);
+      // console.log(user);
     });
   }, []);
   return (

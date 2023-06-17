@@ -19,8 +19,8 @@ export default function Todos(): JSX.Element {
         item: document.data()
       })));
     });
-    console.log(todos);
-  }, [input]);
+    // console.log(todos);
+  }, [input, q, todos]);
 
   const addTodo = (e: React.SyntheticEvent): void => {
     e.preventDefault();
@@ -53,7 +53,7 @@ export default function Todos(): JSX.Element {
               () => { deleteDoc(doc(db, 'todos', el.id)); }
             }
           >
-            удалить
+            Remove
           </button>
         </div>
       ))}
